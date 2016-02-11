@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# script/test: Run test suite for application. Optionally pass in a path to an
+#              individual test file to run a single test.
+
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+[ -z "$DEBUG" ] || set -x
+
+echo "===> Running linter..."
+
+./node_modules/semistandard/bin/cmd.js
+
+echo "===> Running tests..."
+
+if [ ! -z "$EXPORT_COVERAGE" ]; then
+  mkdir -p coverage
+
+  ./node_modules/.bin/lab -c -l -t 95 -v -r lcov > ./coverage/lab.lcov
+
+	cat ./coverage/lab.lcov | ./node_modules/coveralls/bin/coveralls.js
+
+	rm -rf ./coverage
+else
+  ./node_modules/.bin/lab -c -l -t 95 -v
+fi

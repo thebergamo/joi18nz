@@ -1,0 +1,25 @@
+{
+  "name": "joi18nz",
+  "version": "1.0.0",
+  "description": "Internacionlization(i18n) error messages for Joi",
+  "repository": "https://github.com/thebergamo/joi18nz",  
+  "main": "index.js",
+  "scripts": {
+    "test": "scripts/test"
+  },
+  "keywords": [
+    "joi",
+    "i18n",
+    "translation"
+  ],
+  "author": "Marcos Bérgamo <marcos@thedon.com.br>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "code": "~2.1.0",
+    "coveralls": "~2.11.6",
+    "joi": "~7.2.3",
+    "lab": "~8.2.0",
+    "semistandard": "~7.0.5"
+  }
+}
